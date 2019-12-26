@@ -4,29 +4,45 @@
    [recipe-picker.events :as events]
    [recipe-picker.db :as db]))
 
-
-(def <sub (comp deref re-frame.core/subscribe))   ;; aka listen (above)
+;; Shortcusts from the re-frame documentation
+(def <sub (comp deref re-frame.core/subscribe))
 (def >evt re-frame.core/dispatch)
-
-(defn tag-option [tag value]
-  [:option
-   {:on-click (fn [_] (>evt [::events/select-tag tag value]))}
-   value])
 
 (defn tag-selector [tag label]
   [:div.field
    [:label.label label]
    [:div.control
     [:div.select
-     [:select
-      (map (fn [v] ^{:key v} [tag-option tag v]) (<sub [::db/all-tag-values tag]))]]]])  ; *not* mapv, won't expand inline otherwise
+                                        ; handle changes on the select, not the individual options
+     [:select {:value (<sub [::db/selected-tag-value tag])
+               :on-change (fn [e]
+                            (.preventDefault e)
+                            (>evt [::events/select-tag tag (.. e -target -value)]))}
+      (let [all-values (<sub [::db/all-tag-values tag])]
+        (map (fn [v]   ; *not* mapv, won't expand inline otherwise
+               ^{:key v} [:option v])
+             all-values))]]]])
 
 (defn main-panel []
-  [:div.level
-   [:div.level-item
-    [:div
-     [:h1.title "Recipe Picker"]
-     [:form
-      [tag-selector :carbs "Carbs"]
-      [tag-selector :vegs "Vegs"]
-      [tag-selector :misc "Misc"]]]]])
+  [:div.container
+   [:h1.title "Recipe Picker"]
+   [:form
+    [tag-selector :carbs "Carbs"]
+    [tag-selector :vegs "Vegs"]
+    [tag-selector :misc "Misc"]
+    [:div.control
+     [:button.button {:on-click (fn [e]
+                                  (.preventDefault e)
+                                  (>evt [::events/reset-tags]))} "Reset"]]]
+   [:table.table
+    [:thead
+     [:tr
+      [:td "Name"]
+      [:td "Location"]]]
+    [:tbody
+     (map (fn [recipe]
+            ^{:key (:title recipe)}
+            [:tr
+             [:td.has-text-weight-bold (:title recipe)]
+             [:td (:location recipe)]])
+          (<sub [::db/filtered-recipes]))]]])

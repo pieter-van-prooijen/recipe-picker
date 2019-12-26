@@ -1,0 +1,2 @@
+{:known-macros [meander.epsilon/match clojure.java.jdbc/with-db-transaction defproject]}
+

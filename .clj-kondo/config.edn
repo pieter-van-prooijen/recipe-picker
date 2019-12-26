@@ -1,0 +1,6 @@
+;; clara.rules config
+{:linters {:unresolved-symbol {:level :info
+                               :exclude [(meander.epsilon/match)]}}
+ :lint-as {clara.rules/defquery clojure.core/declare
+           clojure.java.jdbc/with-db-transaction clojure.core/let
+           day8.re-frame.tracing/fn-traced clojure.core/fn}}
