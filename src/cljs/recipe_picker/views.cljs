@@ -33,7 +33,11 @@
     [:div.control
      [:button.button {:on-click (fn [e]
                                   (.preventDefault e)
-                                  (>evt [::events/reset-tags]))} "Reset"]]]
+                                  (>evt [::events/reset-tags]))} "Reset"]
+     [:button.button {:on-click (fn [e]
+                                  (.preventDefault e)
+                                  (>evt [::events/shuffle]))} "Shuffle"]
+     [:span.tag.is-large (count (<sub [::db/filtered-recipes]))]]]
    [:table.table
     [:thead
      [:tr

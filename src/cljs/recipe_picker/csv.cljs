@@ -14,6 +14,11 @@
           (remove string/blank?)
           (count)) 1))
 
+;; fields can contain multiple values separated by a pipe
+(defn parse-field [fields index]
+  (let [field (get fields index)]
+    (into #{} (string/split field #"\|"))))
+
 (defn to-recipe [fields]
   ;; comment lines could be present
   (when (recipe? fields)
@@ -21,9 +26,9 @@
      :location (get fields 1)
      :tags (into {} (remove (fn [[_ field]]
                               (string/blank? field))
-                            [[:carbs (get fields 2)]
-                             [:vegs (get fields 3)]
-                             [:misc (get fields 4)]]))}))
+                            [[:carbs (parse-field fields 2)]
+                             [:vegs (parse-field fields 3)]
+                             [:misc (parse-field fields 4)]]))}))
 
 (defn to-recipes [csv]
   (->> (parse-csv csv)

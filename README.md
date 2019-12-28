@@ -10,7 +10,11 @@ Refer to the [shadow-cljs Emacs / CIDER documentation](https://shadow-cljs.githu
 
 **Note: use cider-jackin-cljs (C-c M-S-j) not plain cider-jackin (C-C M-j)
 
+Choose "shadow-cljs" on the first prompt, "app" on the second
+
 The mentioned `dir-local.el` file has been created.
+
+Don't run in parallel with "lein dev" mentioned below.
 
 ### Run application:
 

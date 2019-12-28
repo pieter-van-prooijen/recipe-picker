@@ -1,6 +1,15 @@
 Title,Location,Carbs,Vegs,Misc
-Pasta Putanesca,Los,Spaghetti, ,Ansovis
+Spaghetti alla Puttanesca, ,Spaghetti, ,Anschovis
 Tabouleh,,Couscous,Tomaten,
+Zuurkool,,Aardappelen,Zuurkool,Ananas
+Boerenkool,,Aardappelen,Boerenkool,
+Veg. Hamburgers met merquez aardappels,,Aardappelen,,Hamburgers
+Fritatta,,,Courgette,Eieren
+Gegrilde Little Gems,,,Little gems,
+Shepherds Pie,,Aardappelen,Bloemkool,Linzen
+Eiercurry,,Naans|Rijst,,Eieren
+Gebakken peren,,Ciabatta,Peren|Rucola,Schimmelkaas
+Risotto met spinazie en krenten,,Risotto,Spinazie,
 ,,,,
 De dikke vegetarier,,,,
 ,,,,
@@ -13,7 +22,7 @@ Thaise Rijst (‘chinees eten’),Ddv ?,Rijst,Doperwten,Tofu
 Kidneybonen met appels en sherry,Ddv56,,Appels,Kidneybonen
 Chili non carne,Ddv 607,Tacos,,Kidneybonen
 Mungbonen met rijst en abrikozen,Ddv 611,Rijst,Abrikozen,Mungbonen
-Gebakken bonen op zijn Brasiliaans,Ddv 619,Rijst,Banaan,Kidneybonen
+Gebakken bonen op zijn Braziliaans,Ddv 619,Rijst,Banaan,Kidneybonen
 Falafel,Ddv 625,Broodjes,,Kikkererwten
 Gesmoorde Tempe,Ddv 675,Noedels,,Tempe
 Tempe met rijst en spinazie,Ddv 676,Rijst,Spinazie,Tempe
@@ -21,11 +30,31 @@ Pizza met broccoli,Ddv727,Pizza,Broccoli,
 Focaccia,Ddv729,Broodjes,,
 ,,,,
 ,,,,
-,,,,
-,,,,
-,,,,
-,,,,
 Ottolenghi Simpel,,,,
-Boontjes in scherpe zoetzure saus,Simpel,Rijst,Boontjes,Tofu
+,,,,
+Boontjes in scherpe zoetzure saus,Simpel,Rijst,Sperziebonen,Tofu
 ,,,,
 Spaghetti a la Corma,Simpel,Spaghetti,Aubergine,
+,,,,
+Rose Elliot ,,,,
+Pittige linzen,Vb,Naans,,Rode Linzen
+Spaghetti met linzen wijn saus,Vb,Spaghetti,,Groene Linzen
+Linzenburgers,Vb,Broodjes,,Groene Linzen
+Kikkerwten met Aubergine,Vb,Naans,Aubergine,Kikkererwten
+Dal met koreander,Vb 194,,,
+Sticky tofu steaks,Vb 201,Rijst,Broccoli,Tofu
+Farfalle met tuinbonen en courgettes,Vb 213,Farfalle,Tuinbonen|Courgette,
+Curry van prei en bloemkool,,Rijst,Bloemkool|Prei,
+,,,,
+Veg!,,,,
+Spaghetti met pesto en tomaat,V!,Spaghetti,Tomaten,Amandelen
+Chachouka,V!,Naans,Paprika,
+Ketchupcurry met kikkererwten,V!,Naans,,Kikkererwten
+Salade nicoise zonder vis,V!,Aardappelen,Sperziebonen,
+Salade wortel sinaasappel cashewnoten,,,Wortel|Sinaasappel,
+Salade rode kool sinaasappel dadels,,,Rode kool,
+,,,,
+Puur Vegetarisch,,,,
+Noedels met Komkommer en Radijs,PV,Noedels,Komkommer|Radijs,
+Vlindertjes met bloemkool,PV,Farfalle,Bloemkool,
+Bietjes met witlof,PV,Aardappelen,Bietjes,
