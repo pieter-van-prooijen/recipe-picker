@@ -21,3 +21,7 @@
   (re-frame/dispatch-sync [::events/fetch-recipes "data/recipes.csv"])
   (dev-setup)
   (mount-root))
+
+;; not needed for shadow-cljs
+(defonce did-init? false)
+(when-not did-init? (init))

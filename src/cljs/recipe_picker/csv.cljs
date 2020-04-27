@@ -12,7 +12,8 @@
 (defn recipe? [fields]
   (> (->> fields
           (remove string/blank?)
-          (count)) 1))
+          (count))
+     1))
 
 ;; fields can contain multiple values separated by a pipe
 (defn parse-field [fields index]

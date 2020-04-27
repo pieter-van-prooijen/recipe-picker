@@ -4,7 +4,7 @@
    [recipe-picker.events :as events]
    [recipe-picker.db :as db]))
 
-;; Shortcusts from the re-frame documentation
+;; Shortcuts from the re-frame documentation
 (def <sub (comp deref re-frame.core/subscribe))
 (def >evt re-frame.core/dispatch)
 
