@@ -1,6 +1,6 @@
 (ns recipe-picker.core
   (:require
-   [reagent.core :as reagent]
+   [reagent.dom]
    [re-frame.core :as re-frame]
    [recipe-picker.events :as events]
    [recipe-picker.views :as views]
@@ -13,8 +13,8 @@
 
 (defn ^:dev/after-load mount-root []
   (re-frame/clear-subscription-cache!)
-  (reagent/render [views/main-panel]
-                  (.getElementById js/document "app")))
+  (reagent.dom/render [views/main-panel]
+                      (.getElementById js/document "app")))
 
 ;; invoked by builds/app/modules/app/init-fn in shadow-cljs.edn
 (defn init []

@@ -23,6 +23,20 @@
                ^{:key v} [:option v])
              all-values))]]]])
 
+(defn recipe-list [recipes]
+  [:table.table
+   [:thead
+    [:tr
+     [:td "Name"]
+     [:td "Location"]]]
+   [:tbody
+    (map (fn [recipe]
+           ^{:key (:title recipe)}
+           [:tr
+            [:td.has-text-weight-bold (:title recipe)]
+            [:td (:location recipe)]])
+         recipes)]])
+
 (defn main-panel []
   [:div.container
    [:h1.title "Recipe Picker"]
@@ -38,15 +52,4 @@
                                   (.preventDefault e)
                                   (>evt [::events/shuffle]))} "Shuffle"]
      [:span.tag.is-large (count (<sub [::db/filtered-recipes]))]]]
-   [:table.table
-    [:thead
-     [:tr
-      [:td "Name"]
-      [:td "Location"]]]
-    [:tbody
-     (map (fn [recipe]
-            ^{:key (:title recipe)}
-            [:tr
-             [:td.has-text-weight-bold (:title recipe)]
-             [:td (:location recipe)]])
-          (<sub [::db/filtered-recipes]))]]])
+   [recipe-list (<sub [::db/filtered-recipes])]])

@@ -1,12 +1,11 @@
 (defproject recipe-picker "0.1.0-SNAPSHOT"
   :dependencies [[org.clojure/clojure "1.10.1"]
-                 [org.clojure/clojurescript "1.10.597"
+                 [org.clojure/clojurescript "1.10.773"
                   :exclusions [com.google.javascript/closure-compiler-unshaded
                                org.clojure/google-closure-library
                                org.clojure/google-closure-library-third-party]]
-                 [thheller/shadow-cljs "2.8.83"]
-                 [reagent "0.8.1"]
-                 [re-frame "0.10.9"]]
+                 [thheller/shadow-cljs "2.10.17"]
+                 [re-frame "1.0.0"]]
 
   :plugins [
             [lein-shell "0.5.0"]]
@@ -44,9 +43,9 @@
 
   :profiles
   {:dev
-   {:dependencies [[binaryage/devtools "0.9.11"]
-                   [day8.re-frame/re-frame-10x "0.4.4"]
-                   [day8.re-frame/tracing "0.5.3"]]}
+   {:dependencies [[binaryage/devtools "1.0.2"]
+                   [day8.re-frame/re-frame-10x "0.7.0"]
+                   [day8.re-frame/tracing "0.6.0"]]}
 
-   :prod { :dependencies [[day8.re-frame/tracing-stubs "0.5.3"]]}
+   :prod { :dependencies [[day8.re-frame/tracing-stubs "0.6.0"]]}
    })

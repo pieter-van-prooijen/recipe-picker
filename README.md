@@ -16,7 +16,7 @@ The mentioned `dir-local.el` file has been created.
 
 Don't run in parallel with "lein dev" mentioned below.
 
-### Run application:
+### Run application standalone:
 
 ```
 lein dev
@@ -47,9 +47,9 @@ $ lein clean
 $ lein prod
 ```
 
-Copy the contents of resources/public to xs4all:~pprooi/WWW/recipe-picker
+Copy the contents of resources/public to WWW/recipe-picker on xs4all
 
-## Webpack
+## Webpack (cljs.main :bundle option)
 Make sure webpack is installed, follow guide at https://clojurescript.org/guides/webpack
 
 See deps.edn for an example to pull in the latest react via npm
@@ -69,6 +69,7 @@ $ clj -m cljs.main -co build.edn -O advanced  -v -c
 ```
 
 #### Nginx config
+
 Show the site via http://localhost/recipe-picker
 
 in /etc/nginx/sites-available/default
@@ -94,8 +95,17 @@ in /etc/nginx/sites-available/default
 Use "service nginx reload" to reload the configuration
 
 #### Size Comparison:
-closure: 498K
-webpack: 621K
+
+shadow-cljs release: 338K (with cljsjs react packages)
+
+webpack advanced: 354K (with explicit npm react packages, exclused cljsjs packages)
+
+webpack advanced: 484K (with cljsjs react packages, present in index.js, but still pulls in npm react as well) ?
 
 #### TODO
+
+webpack dev server ?
+css bundling
 hot code reloading (figwheel.main instead of shadow-cljs ?) + cider repl
+pre-loading re-frame 10x utils
+

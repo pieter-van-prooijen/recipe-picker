@@ -11,7 +11,7 @@
 (re-frame/reg-fx
  :http
  (fn [[url success-event]]
-   (xhrio/send url (fn [ev]
+   (xhrio/send url (fn [^js/Event ev]
                      (let [response (.. ev -target getResponseText)]
                        (re-frame/dispatch [success-event response]))))))
 
@@ -25,7 +25,7 @@
  ::recipes-fetched
  (fn-traced [db [_ csv]]
             (when debug?
-              (println "fetched recipes " (csv/to-recipes csv)))
+              (println "fetched recipes " #_(csv/to-recipes csv)))
             (-> db
                 (assoc :all-recipes (csv/to-recipes csv))
                 (assoc :shuffle 0))))

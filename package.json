@@ -1,9 +1,9 @@
 {
   "dependencies": {
-    "create-react-class": "^15.6.3",
-    "react": "^16.13.1",
-    "react-create-class": "^1.0.0",
-    "react-dom": "^16.13.1"
+    "highlight.js": "9.18.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-highlight.js": "1.0.7"
   },
   "devDependencies": {
     "webpack": "^4.43.0",
