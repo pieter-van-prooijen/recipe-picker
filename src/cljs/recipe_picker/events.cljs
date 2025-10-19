@@ -12,8 +12,9 @@
  :http
  (fn [[url success-event]]
    (xhrio/send url (fn [^js/Event ev]
-                     (let [response (.. ev -target getResponseText)]
-                       (re-frame/dispatch [success-event response]))))))
+                     (let [response (.. ev -target getResponseText)
+                           last-modified (.getResponseHeader (.-target ev) "Last-Modified")]
+                       (re-frame/dispatch [success-event [response last-modified]]))))))
 
 (re-frame/reg-event-fx
  ::fetch-recipes
@@ -23,7 +24,7 @@
 
 (re-frame/reg-event-db
  ::recipes-fetched
- (fn-traced [db [_ csv]]
+ (fn-traced [db [_ [csv last-modified]]]
             (when debug?
               (println "fetched recipes " #_(csv/to-recipes csv)))
             (-> db
@@ -49,3 +50,17 @@
  ::shuffle
  (fn-traced [db _]
             (update-in db [:shuffle] inc)))
+
+(comment
+
+  (Date/parse "Thu, 09 Dec 2021 11:59:33 GMT")
+  (->>  "Thu, 09 Dec 2021 11:59:33 GMT"
+        (goog.date.DateTime/fromRfc822String)
+        #_(time-core/minute)
+        #_(time-format/unparse (:date-time time-format/formatters)))
+
+  (time-format/show-formatters)
+  (time-core/default-time-zone)
+  (time-format/parse (time-format/formatters :rfc822) "Thu, 09 Dec 2021 11:59:33 GMT")
+  (time-format/parse  "Thu, 09 Dec 2021 11:59:33 GMT")
+  ,)

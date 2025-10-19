@@ -1,11 +1,14 @@
+;;
+;; OBSOLETE, use shadow-cljs.edn for the entire project definition
+;;
 (defproject recipe-picker "0.1.0-SNAPSHOT"
-  :dependencies [[org.clojure/clojure "1.10.1"]
-                 [org.clojure/clojurescript "1.10.773"
+  :dependencies [[org.clojure/clojure "1.10.3"]
+                 [org.clojure/clojurescript "1.10.866"
                   :exclusions [com.google.javascript/closure-compiler-unshaded
                                org.clojure/google-closure-library
                                org.clojure/google-closure-library-third-party]]
-                 [thheller/shadow-cljs "2.10.17"]
-                 [re-frame "1.0.0"]]
+                 [thheller/shadow-cljs "2.14.3"]
+                 [re-frame "1.2.0"]]
 
   :plugins [
             [lein-shell "0.5.0"]]
@@ -14,7 +17,7 @@
 
   :jvm-opts ["-Xmx1G"]
 
-  :source-paths ["src/clj" "src/cljs"]
+  :source-paths ["src/clj" "src/cljs" "stories/cljs"]
 
   :test-paths   ["test/cljs"]
 
@@ -43,9 +46,9 @@
 
   :profiles
   {:dev
-   {:dependencies [[binaryage/devtools "1.0.2"]
-                   [day8.re-frame/re-frame-10x "0.7.0"]
-                   [day8.re-frame/tracing "0.6.0"]]}
+   {:dependencies [[binaryage/devtools "1.0.3"]
+                   [day8.re-frame/re-frame-10x "1.1.1"]
+                   [day8.re-frame/tracing "0.6.2"]]}
 
-   :prod { :dependencies [[day8.re-frame/tracing-stubs "0.6.0"]]}
+   :prod { :dependencies [[day8.re-frame/tracing-stubs "0.6.2"]]}
    })

@@ -2,24 +2,31 @@
 
 A [re-frame](https://github.com/day8/re-frame) application designed to pick recipes
 
+## Setup
+
+Install shadow-cljs from npm
+
 ## Development Mode
 
 ### Start Cider from Emacs:
 
+Build the application first
+```
+npx shadow-cljs watch :app
+```
+
 Refer to the [shadow-cljs Emacs / CIDER documentation](https://shadow-cljs.github.io/docs/UsersGuide.html#cider).
 
-**Note: use cider-jackin-cljs (C-c M-S-j) not plain cider-jackin (C-C M-j)
+**Note: use cider-jackin-cljs (C-c M-S-j , capital j) not plain cider-jackin (C-C M-j)
 
 Choose "shadow-cljs" on the first prompt, "app" on the second
 
 The mentioned `dir-local.el` file has been created.
 
-Don't run in parallel with "lein dev" mentioned below.
-
 ### Run application standalone:
 
 ```
-lein dev
+$ npx shadow-cljs watch :app
 ```
 
 shadow-cljs will automatically push cljs changes to the browser.
@@ -43,11 +50,11 @@ lein karma
 ## Production Build
 
 ```
-$ lein clean
-$ lein prod
+$ npx shadow-cljs release :app
+$ 
 ```
 
-Copy the contents of resources/public to WWW/recipe-picker on xs4all
+Copy the contents of resources/public to WWW/recipe-picker on fastmail
 
 ## Webpack (cljs.main :bundle option)
 Make sure webpack is installed, follow guide at https://clojurescript.org/guides/webpack
@@ -101,6 +108,19 @@ shadow-cljs release: 338K (with cljsjs react packages)
 webpack advanced: 354K (with explicit npm react packages, exclused cljsjs packages)
 
 webpack advanced: 484K (with cljsjs react packages, present in index.js, but still pulls in npm react as well) ?
+
+## Storybook
+
+Random notes:
+- https://github.com/DavidVujic/clojurescript-amplified for an example
+- see files in .storybook on how to add custom css etc.
+- start the storybook script defined in package.json
+- needs a shadlow-clj watcher on :stories (watches both stories and the real components
+- add resources/public as a "-s" option when starting storybook
+- needs a function as the :component value in the config
+- components need to be a *pure function* (no re-frame subscriptions, events etc.)
+- .storybook/.babelrc prevents storybook webpack from recompiling clojurescript generated js?
+
 
 #### TODO
 

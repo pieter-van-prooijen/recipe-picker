@@ -6,7 +6,6 @@
    [recipe-picker.views :as views]
    [recipe-picker.config :as config]))
 
-
 (defn dev-setup []
   (when config/debug?
     (println "dev mode")))
@@ -25,3 +24,4 @@
 ;; not needed for shadow-cljs
 (defonce did-init? false)
 (when-not did-init? (init))
+

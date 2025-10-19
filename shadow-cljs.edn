@@ -1,18 +1,35 @@
-{:lein   true
-
+{
  :nrepl {:port 8777}
 
+ :source-paths ["src/clj" "src/cljs" "stories/cljs"]
+ 
+ :dependencies [[reagent "1.1.0"]
+                [re-frame "1.2.0"]
+                [tick/tick "0.4.32"]
+
+                [binaryage/devtools "1.0.3"] ;; automatically put in preloads
+                [day8.re-frame/re-frame-10x "1.1.1"]
+                [day8.re-frame/tracing "0.6.2"]]
+ 
  :builds {:app {:target          :browser
                 :output-dir      "resources/public/js/compiled"
                 :asset-path      "/js/compiled"
                 :modules         {:app {:init-fn recipe-picker.core/init
-                                        :preloads [devtools.preload
-                                                   day8.re-frame-10x.preload]}}
+                                        :preloads [day8.re-frame-10x.preload]}}
                 :dev             {:compiler-options {:closure-defines {re-frame.trace.trace-enabled?        true
                                                                        day8.re-frame.tracing.trace-enabled? true}}}
                 :devtools        {:http-root    "resources/public"
                                   :http-port    8280
-                                  }}
+                                  }
+                :release {:build-options
+                          {:ns-aliases
+                           ;; tracing lib also contains the stub definition
+                           {day8.re-frame.tracing day8.re-frame.tracing-stubs}}}}
+          
+          :stories {:target :npm-module
+                    :ns-regexp "-stories$"
+                    :output-dir "resources/public/js/stories"}
+          
 
           :browser-test {:target :browser-test
                          :ns-regexp "-test$"

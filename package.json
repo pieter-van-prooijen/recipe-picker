@@ -1,13 +1,22 @@
 {
-  "dependencies": {
-    "highlight.js": "9.18.1",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "react-highlight.js": "1.0.7"
-  },
-  "devDependencies": {
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11",
-    "y18n": "^4.0.1"
-  }
+    "scripts": {
+        "dev": "shadow-cljs watch frontend",
+        "dev-stories": "shadow-cljs watch stories",
+        "storybook": "start-storybook -s resources/public"
+    },
+    "dependencies": {
+        "@js-joda/core": "3.2.0",
+        "@js-joda/locale_en-us": "3.1.1",
+        "@js-joda/timezone": "2.5.0",
+        "highlight.js": "10.7.2",
+        "react": "17.0.2",
+        "react-dom": "17.0.2"
+    },
+    "devDependencies": {
+        "@storybook/react": "^6.3.8",
+        "shadow-cljs": "^2.16.12",
+        "webpack": "^4.43.0",
+        "webpack-cli": "^3.3.11",
+        "y18n": "^4.0.1"
+    }
 }

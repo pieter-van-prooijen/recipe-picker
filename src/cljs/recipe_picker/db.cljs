@@ -54,6 +54,9 @@
          (fn [query [_ tag]]
            (get query tag wild-card-value)))
 
+(reg-sub ::last-modified
+         (fn [db _]
+           (:last-modified db)))
 
 ;; query is a map of tag => #{tag-values}
 (defn match-recipe [query recipe]
